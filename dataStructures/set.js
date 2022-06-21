@@ -1,8 +1,16 @@
-let Set = function () {
+let MySet = function () {
     this.dataStore = [];
 
+    this.has = (element) => {
+        return this.dataStore.indexOf(element) !== -1;
+    };
+
+    this.value = () => {
+        return this.dataStore;
+    };
+
     this.add = (element) => {
-        if (!this.contains(element)) {
+        if (!this.has(element)) {
             this.dataStore.push(element);
         }
     };
@@ -19,7 +27,7 @@ let Set = function () {
     };
 
     this.union = (set) => {
-        let newSet = new Set();
+        let newSet = new MySet();
         let firstSet = this.dataStore;
         let secondSet = set.dataStore;
 
@@ -29,7 +37,7 @@ let Set = function () {
     };
 
     this.difference = (set) => {
-        let newSet = new Set();
+        let newSet = new MySet();
         let firstSet = this.dataStore;
         let secondSet = set.dataStore;
 
@@ -42,7 +50,7 @@ let Set = function () {
     };
 
     this.intersection = (set) => {
-        let newSet = new Set();
+        let newSet = new MySet();
         let firstSet = this.dataStore;
         let secondSet = set.dataStore;
 
@@ -51,8 +59,8 @@ let Set = function () {
                 newSet.add(e);
             }
         });
-        return newSet();
+        return newSet;
     };
 };
 
-module.exports = Set;
+module.exports = { MySet: MySet };
