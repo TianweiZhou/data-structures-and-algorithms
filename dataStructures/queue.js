@@ -33,7 +33,7 @@ let PriorityQueue = function () {
             let added = false;
             for (let i = 0; i < this.dataStore.length; i++) {
                 if (this.dataStore[i][1] < element[1]) {
-                    this.dataStore.splice(i, 1, element);
+                    this.dataStore.splice(i, 0, element);
                     added = true;
                     break;
                 }
