@@ -1,3 +1,4 @@
+//TODO:make class
 let Queue = function () {
     this.dataStore = [];
 
