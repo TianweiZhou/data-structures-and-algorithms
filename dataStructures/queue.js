@@ -1,33 +1,31 @@
-//TODO:make class
-let Queue = function () {
-    this.dataStore = [];
+class Queue {
+    constructor() {
+        this.dataStore = [];
+    }
 
-    this.enqueue = (element) => {
+    enqueue(element) {
         this.dataStore.push(element);
-    };
+    }
 
-    this.front = () => {
+    front() {
         return this.dataStore[0];
-    };
+    }
 
-    this.dequeue = () => {
+    dequeue() {
         this.dataStore.shift();
-    };
+    }
 
-    this.size = () => {
+    size() {
         return this.dataStore.length;
-    };
+    }
 
-    this.isEmpty = () => {
+    isEmpty() {
         return this.dataStore.length === 0;
-    };
-};
+    }
+}
 
-//Implementation with array
-let PriorityQueue = function () {
-    this.dataStore = [];
-
-    this.enqueue = (element) => {
+class PriorityQueue extends Queue {
+    enqueue(element) {
         if (this.dataStore.length === 0) {
             this.dataStore.push(element);
         } else {
@@ -43,23 +41,14 @@ let PriorityQueue = function () {
                 this.dataStore.push(element);
             }
         }
-    };
+    }
 
-    this.front = () => {
+    front() {
+        if (this.dataStore.length === 0) {
+            return undefined;
+        }
         return this.dataStore[0][0];
-    };
-
-    this.dequeue = () => {
-        this.dataStore.shift();
-    };
-
-    this.size = () => {
-        return this.dataStore.length;
-    };
-
-    this.isEmpty = () => {
-        return this.dataStore.length === 0;
-    };
-};
+    }
+}
 
 module.exports = { Queue: Queue, PriorityQueue: PriorityQueue };
