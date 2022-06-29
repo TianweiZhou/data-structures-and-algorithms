@@ -56,4 +56,17 @@ describe("Priority Queue test with integer", () => {
         expect(myPriorityQueue.isEmpty()).toBe(true);
         expect(myPriorityQueue.size()).toBe(0);
     });
+
+    test("enqueue [3, 1], [2, 1], [2, 2], [1, 3] to the priority queue, the front of the queue must be 1", () => {
+        const elements = [
+            [3, 1],
+            [2, 1],
+            [2, 2],
+            [1, 3],
+        ];
+        for (let i = 0; i < elements.length; i++) {
+            myPriorityQueue.enqueue(elements[i]);
+        }
+        expect(myPriorityQueue.front()).toBe(1);
+    });
 });
