@@ -19,4 +19,3 @@ describe("test BST with integer", () => {
         expect(myBinarySearchTree.find(4)).toBe(false);
     });
 });
-
