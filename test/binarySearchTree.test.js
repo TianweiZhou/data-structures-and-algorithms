@@ -18,4 +18,9 @@ describe("test BST with integer", () => {
         expect(myBinarySearchTree.find(1)).toBe(true);
         expect(myBinarySearchTree.find(4)).toBe(false);
     });
+
+    test("remove 1 then find 1 should be false", () => {
+        expect(myBinarySearchTree.remove(1));
+        expect(myBinarySearchTree.find(1)).toBe(false);
+    });
 });

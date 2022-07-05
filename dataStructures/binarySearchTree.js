@@ -37,7 +37,40 @@ class BST {
         }
     }
 
-    remove(element) {}
+    remove(element) {
+        const removeNode = (node, data) => {
+            if (node === null) {
+                return null;
+            }
+            if (node.value === data) {
+                //no children
+                if ((node.left === null && node, node.right === null)) {
+                    return null;
+                }
+                //no left child
+                if (node.left === null) {
+                    return node.right;
+                }
+                //no right child
+                if (node.right === null) {
+                    return node.left;
+                }
+                //have both left and right children
+                let tempNode = node.right;
+                while (tempNode.left !== null) {
+                    tempNode = tempNode.left;
+                }
+                node.data = tempNode.data;
+                node.right = removeNode(node.right, tempNode.data);
+                return node;
+            } else if (node.data > data) {
+                node.left = removeNode(node.left, data);
+            } else {
+                node.right = removeNode(node.right, data);
+            }
+        };
+        this.root = removeNode(this.root, element);
+    }
 
     findMin() {
         let current = this.root;
