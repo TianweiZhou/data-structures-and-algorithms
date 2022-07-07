@@ -61,6 +61,7 @@ class BST {
                     tempNode = tempNode.left;
                 }
                 node.data = tempNode.data;
+                //remove the inorder successor
                 node.right = removeNode(node.right, tempNode.data);
                 return node;
             } else if (node.data > data) {
@@ -104,6 +105,20 @@ class BST {
             }
         };
         return findInTree(node);
+    }
+
+    findMaxHeight(node = this.root) {
+        if (node === null) {
+            return -1;
+        }
+        return max(this.findMaxHeight(node.left), this.findMaxHeight(node.right)) + 1;
+    }
+
+    findMinHeight(node = this.root) {
+        if (node === null) {
+            return -1;
+        }
+        return min(this.findMaxHeight(node.left), this.findMaxHeight(node.right)) + 1;
     }
 }
 
