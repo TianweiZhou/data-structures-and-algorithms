@@ -169,11 +169,3 @@ class BST {
 }
 
 module.exports = BST;
-
-const a = {
-    root: {
-        value: 4,
-        left: { value: 3, left: [Node], right: null },
-        right: { value: 8, left: [Node], right: [Node] },
-    },
-};
